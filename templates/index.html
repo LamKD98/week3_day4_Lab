@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Events</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<header>
+    <h1>EventsRUs</h1>
+</header>
+<body>
+    <br>
+    <div class="form">
+        <form action="/events"method="post">
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date">
+
+            <label for="name">Event</label>
+            <input type="text" name="name" id="name">
+
+            <label for="number_of_guests">Number of Guests</label>
+            <input type="text" name="number_of_guests" id="number_of_guests">
+
+            <label for="room">Room</label>
+            <input type="text" name="room" id="room">
+
+            <label for="description"> Description</label>
+            <textarea name="description" id="description" rows="2" cols="30"></textarea>
+            <input class='button' type="submit" value="Add Event">
+        </form>
+    </div>
+    <div id="main">
+    <h1>List of Events</h1>
+    {% for event in event_list %}
+
+        <p>
+
+            {{ event.date }}: {{ event.name }}: {{ event.num_of_guests}}: {{ event.room }}: {{ event.description }}
+        </p>
+
+    {% endfor %}
+    </div>
+</body>
+<footer>
+    <h3>EventsRUs</h3>
+    <div class="footer-widget">
+        <p>123 Floor <br> Street Edingburg EH1 2BC <br>
+            <a href="#">0131 234 9734</a> <br>
+            <a href="#">contact@eventscot.com</a>
+        </p>
+    </div>
+</footer>
+</html>
